@@ -7,7 +7,7 @@ int main()
     int temp = 0;
     string ans[7];
     int mod = 10;
-    int n[8];
+    int n[9];
     string r1[] = { "0","I","II","III","VI","V","VI","VII","VIII","IX" };
     string r2[] = { "X","XX","XXX","XL","L","LX","LXX","LXXX","XC" };
     string r3[] = { "C","CC","CCC","CD","D","DC","DCC","DCCC","CM" };
@@ -22,12 +22,17 @@ int main()
     {
         num = user % mod;
         user = user - num;
-        n[6 - i] = num;
+        n[7 - i] = num;
         mod = mod * 10;
     }
 
     for (int i = 0; i < 7; i++)
     {
+        if (n[i] == 1000000)
+        {
+            temp = n[i] / 1000000;
+            ans[i] = r7[temp - 1];
+        }
         if (n[i] > 99999 && n[i] < 1000000)
         {
             temp = n[i] / 100000;
